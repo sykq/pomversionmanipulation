@@ -1,34 +1,56 @@
 package org.psc.pom.version.manipulation.engine;
 
+import java.util.function.Predicate;
+
 public class ArtifactConfiguration {
 
-    private String groupId;
-    private String artifactId;
-    private String version;
+	private Predicate<String> groupIdFilter;
+	private Predicate<String> artifactIdFilter;
+	private Predicate<String> versionFilter;
 
-    public String getGroupId() {
-        return groupId;
-    }
+	/**
+	 * @return the groupIdFilter
+	 */
+	public Predicate<String> getGroupIdFilter() {
+		return groupIdFilter;
+	}
 
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
+	/**
+	 * @param groupIdFilter
+	 *            the groupIdFilter to set
+	 */
+	public void setGroupIdFilter(Predicate<String> groupIdFilter) {
+		this.groupIdFilter = groupIdFilter;
+	}
 
-    public String getArtifactId() {
-        return artifactId;
-    }
+	/**
+	 * @return the artifactIdFilter
+	 */
+	public Predicate<String> getArtifactIdFilter() {
+		return artifactIdFilter;
+	}
 
-    public void setArtifactId(String artifactId) {
-        this.artifactId = artifactId;
-    }
+	/**
+	 * @param artifactIdFilter
+	 *            the artifactIdFilter to set
+	 */
+	public void setArtifactIdFilter(Predicate<String> artifactIdFilter) {
+		this.artifactIdFilter = artifactIdFilter;
+	}
 
-    public String getVersion() {
-        return version;
-    }
+	/**
+	 * @return the versionFilter
+	 */
+	public Predicate<String> getVersionFilter() {
+		return versionFilter;
+	}
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
+	/**
+	 * @param versionFilter
+	 *            the versionFilter to set
+	 */
+	public void setVersionFilter(Predicate<String> versionFilter) {
+		this.versionFilter = versionFilter;
+	}
+
 }
-
-
