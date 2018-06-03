@@ -17,12 +17,14 @@ import javax.xml.transform.TransformerException;
 import javax.xml.xpath.XPathExpressionException;
 
 import org.apache.commons.lang3.StringUtils;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.psc.pom.version.manipulation.engine.VersionManipulator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 
+@Ignore
 public class VersionManipulatorTest {
 	private static final Logger LOGGER = LoggerFactory.getLogger(VersionManipulatorTest.class);
 

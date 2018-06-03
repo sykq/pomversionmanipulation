@@ -48,3 +48,7 @@ Temporary Items
 
 #target folder
 target
+.svn/wc.db
+*.svn-base
+.svn/entries
+.svn/format

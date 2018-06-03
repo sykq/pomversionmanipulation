@@ -36,6 +36,7 @@ public class VersionManipulator {
 
 	private static final String VARIABLE_IDENTIFIER = "${";
 
+	@Deprecated
 	public void readFile(String pathUri, String groupId, String artifactId) throws IOException,
 			ParserConfigurationException, SAXException, TransformerException, XPathExpressionException {
 		Path path = Paths.get(pathUri);
@@ -103,10 +104,7 @@ public class VersionManipulator {
 			Predicate<String> artifactIdFilter, Predicate<String> versionFilter, String newVersion) throws IOException,
 			ParserConfigurationException, SAXException, TransformerException, XPathExpressionException {
 
-		FileInputStream fis = new FileInputStream(path.toFile());
-		DocumentBuilder domBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-		Document document = domBuilder.parse(fis);
-		fis.close();
+		Document document = buildDocumentFromPom(path);
 
 		List<String> variableNames = new ArrayList<>();
 		List<Node> versions = new ArrayList<>();
@@ -189,6 +187,15 @@ public class VersionManipulator {
 				}
 			}
 		}
+	}
+
+	public static Document buildDocumentFromPom(Path pomPath)
+			throws IOException, ParserConfigurationException, SAXException {
+		FileInputStream fis = new FileInputStream(pomPath.toFile());
+		DocumentBuilder domBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		Document document = domBuilder.parse(fis);
+		fis.close();
+		return document;
 	}
 
 	private void writeFile(Path target, Document document) throws IOException, TransformerException {
