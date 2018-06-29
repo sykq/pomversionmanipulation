@@ -52,3 +52,6 @@ target
 *.svn-base
 .svn/entries
 .svn/format
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/workspace.xml
